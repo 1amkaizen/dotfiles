@@ -1,0 +1,46 @@
+#!/bin/bash
+# COLOR
+COff='\033[0m'       # Text Reset
+# Bold
+BBlack='\033[1;30m'       # Black
+BRed='\033[1;31m'         # Red
+BGreen='\033[1;32m'       # Green
+BYellow='\033[1;33m'      # Yellow
+BBlue='\033[1;34m'        # Blue
+BPurple='\033[1;35m'      # Purple
+BCyan='\033[1;36m'        # Cyan
+BWhite='\033[1;37m'       # White
+
+a=1
+b=2
+#sudo systemctl enable docker --now
+while true
+do
+echo -e "${BRed}[1].DVWA"
+echo -e "${BRed}[2].Juice-Shop${BGreen}"
+read -p "Pilih : " pilih
+
+if [ $a == $pilih ]; then
+	echo -e  "${BRed}installing DVWA"
+	sleep 1
+	echo -e  "${BGreen}installing DVWA success"
+	#docker pull bu6hunt3r/dvwa
+	echo -e "${BRed}untuk menjalankan : "
+	echo -e "${BGreen}==>docker run -p 81:80 bu6hunt3r/dvwa"
+	echo -e "${BRed}browser : "
+	echo -e "${BGreen}==>http://localhost:81/login.php"
+elif [ $b == $pilih  ]; then
+	echo -e "${BRed}installing juice-shop"
+	sleep 1
+	#docker pull bkimminich/juice-shop:latest-arm
+	echo -e "${BGreen}installing juice-shop success"
+	echo -e "${BRed}untuk menjalankan : "
+	echo -e "${BGreen}==>docker run --rm -p 3000:3000 bkimminich/juice-shop"
+	echo -e "${BRed}browser : "
+	echo -e "${BGreen}==>http://localhost:3000"
+	echo -e "${BRed}On macOS & Windows"
+	echo -e "${BGreen}==>http://192.168.99.100:3000"
+else
+	echo "${BRed}Tidak ada"
+fi
+done

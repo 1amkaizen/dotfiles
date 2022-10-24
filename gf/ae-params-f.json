@@ -1,0 +1,8 @@
+{
+    "_comment" : "Finds URL parameters. Output includes file names",
+
+    "flags": "-PHornia",
+    "patterns" : [
+        "(?<=\\?|&)(\\w)+=(\\w)+"
+    ]
+}
