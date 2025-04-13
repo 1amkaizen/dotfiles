@@ -1,11 +1,19 @@
 #!/bin/bash
 
+# Warna
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+
 # ================================================
 # Script untuk menginstall plugin Vim secara otomatis
 # Menggunakan Vundle dan manual git clone untuk beberapa plugin
 # ================================================
 
-echo "🔧 Menginstall Vundle (Plugin Manager Vim)..."
+echo -e "${CYAN}🔧 Menginstall Vundle (Plugin Manager Vim)...${NC}"
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 # ================================================
@@ -13,7 +21,7 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 # ================================================
 
 # Membuat direktori plugin via 'pack' untuk tpope (fugitive)
-echo "📦 Menginstall vim-fugitive (via pack)..."
+echo -e "${YELLOW}📦 Menginstall vim-fugitive (via pack)...${NC}"
 mkdir -p ~/.vim/pack/tpope/start
 cd ~/.vim/pack/tpope/start
 git clone https://tpope.io/vim/fugitive.git
@@ -22,35 +30,36 @@ git clone https://tpope.io/vim/fugitive.git
 vim -u NONE -c "helptags fugitive/doc" -c q
 
 # Plugin lain via ~/.vim/bundle
-echo "📦 Menginstall plugin tambahan..."
+echo -e "${YELLOW}📦 Menginstall plugin tambahan...${NC}"
 mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 
-echo "📦 Menginstall gundo.vim..."
+echo -e "${BLUE}📦 Menginstall gundo.vim...${NC}"
 git clone https://github.com/sjl/gundo.vim.git
 
-echo "📦 Menginstall tabular..."
+echo -e "${BLUE}📦 Menginstall tabular...${NC}"
 git clone git://github.com/godlygeek/tabular.git
 
-echo "📦 Menginstall vim-airline..."
+echo -e "${BLUE}📦 Menginstall vim-airline...${NC}"
 git clone https://github.com/vim-airline/vim-airline.git
 
-echo "📦 Menginstall vim-airline-themes..."
+echo -e "${BLUE}📦 Menginstall vim-airline-themes...${NC}"
 git clone https://github.com/vim-airline/vim-airline-themes.git
+sudo apt install vim-airline-themes
 
-echo "📦 Menginstall nerdtree..."
+echo -e "${BLUE}📦 Menginstall nerdtree...${NC}"
 git clone https://github.com/preservim/nerdtree.git
 
 # Plugin via 'pack' untuk bahasa pemrograman
-echo "📦 Menginstall vim-go dan rust.vim (via pack)..."
+echo -e "${YELLOW}📦 Menginstall vim-go dan rust.vim (via pack)...${NC}"
 mkdir -p ~/.vim/pack/plugins/start
 cd ~/.vim/pack/plugins/start
 
-echo "📦 Menginstall vim-go..."
+echo -e "${BLUE}📦 Menginstall vim-go...${NC}"
 git clone https://github.com/fatih/vim-go.git
 
-echo "📦 Menginstall rust.vim..."
+echo -e "${BLUE}📦 Menginstall rust.vim...${NC}"
 git clone https://github.com/rust-lang/rust.vim.git
 
-echo "✅ Semua plugin berhasil di-clone!"
-echo "📜 Jalankan Vim dan ketik :PluginInstall untuk install plugin dari Vundle."
+echo -e "${GREEN}✅ Semua plugin berhasil di-clone!${NC}"
+echo -e "${CYAN}📜 Jalankan Vim dan ketik :PluginInstall untuk install plugin dari Vundle.${NC}"
